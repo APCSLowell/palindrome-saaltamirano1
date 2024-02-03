@@ -6,7 +6,7 @@ public class PalindromeChecker {
 public void tester()
 {
   //String lines[] = loadStrings("palindromes.txt");
-  String[] lines = new String[6]; 
+  String[] lines = new String[6];
     try{
         File myFile = new File("palindromes.txt");
         Scanner myReader = new Scanner(myFile);
@@ -23,7 +23,7 @@ public void tester()
         e.printStackTrace();
     }
   System.out.println("there are " + lines.length + " lines");
-  for (int i=0; i < lines.length; i++) 
+  for (int i=0; i < lines.length; i++)
   {
     if(palindrome(lines[i])==true)
     {
@@ -37,21 +37,32 @@ public void tester()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  String backwards = onlyLetters(word.toLowerCase());
+String backwards = onlyLetters(word.toLowerCase());
    
   if (backwards.equals(reverse(backwards))) {
     return true;
-  }
+  }  
+  //your code here
   return false;
 }
 public String reverse(String str)
 {
-     String sNew = new String();
- 
-  for (int i = str.length()-1; i >= 0; i-- ) {
+    String sNew = new String();
+ for (int i = str.length()-1; i >= 0; i-- ) {
     sNew += str.substring(i,i+1);
   }
- 
+   
+    //your code here
     return sNew;
+}
+
+  public String onlyLetters(String sString){
+  String s = "";
+  for ( int i = 0; i < sString.length(); i++) {
+    if (Character.isLetter(sString.charAt(i))) {
+       s += sString.charAt(i);
+    }
+  }
+  return s;
+}
 }
